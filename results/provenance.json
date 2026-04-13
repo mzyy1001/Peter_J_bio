@@ -1,0 +1,20 @@
+{
+  "python_version": "3.12.4",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "seed": 42,
+  "n_samples": 300,
+  "n_genes": 250,
+  "pipeline_parameters": {
+    "correlation_method": "spearman",
+    "bonferroni_alpha": 0.05,
+    "partial_corr_threshold": 0.15,
+    "pc_alpha": 0.05,
+    "ml_cv_folds": 5
+  },
+  "package_versions": {
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.10.8"
+  }
+}

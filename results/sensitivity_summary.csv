@@ -1,0 +1,7 @@
+analysis,key_metric,value
+shared_gene_removal,correlation_similarity,0.7528451254677855
+shared_gene_removal,n_removed_genes,16.0
+scoring_comparison,ssgsea_vs_meanz,0.9555177353652298
+scoring_comparison,ssgsea_vs_pca,0.7826922910821199
+scoring_comparison,meanz_vs_pca,0.8493330022579277
+tissue_adjustment,adjusted_vs_unadjusted_similarity,0.9988234860306923

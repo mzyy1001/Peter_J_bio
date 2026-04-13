@@ -1,0 +1,123 @@
+\begin{thebibliography}{16}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[L{\'o}pez-Ot{\'i}n et~al.(2013)L{\'o}pez-Ot{\'i}n, Blasco, Partridge,
+  Serrano, and Kroemer]{lopez2013hallmarks}
+Carlos L{\'o}pez-Ot{\'i}n, Maria~A Blasco, Linda Partridge, Manuel Serrano, and
+  Guido Kroemer.
+\newblock The hallmarks of aging.
+\newblock \emph{Cell}, 153\penalty0 (6):\penalty0 1194--1217, 2013.
+\newblock \doi{10.1016/j.cell.2013.05.039}.
+
+\bibitem[Kennedy et~al.(2014)Kennedy, Berger, Brunet, Campisi, Cuervo, Epel,
+  Franceschi, Lithgow, Morimoto, Pessin, et~al.]{kennedy2014geroscience}
+Brian~K Kennedy, Shelley~L Berger, Anne Brunet, Judith Campisi, Ana~Maria
+  Cuervo, Elissa~S Epel, Claudio Franceschi, Gordon~J Lithgow, Richard~I
+  Morimoto, Jeffrey~E Pessin, et~al.
+\newblock Geroscience: linking aging to chronic disease.
+\newblock \emph{Cell}, 159\penalty0 (4):\penalty0 709--713, 2014.
+
+\bibitem[d'Adda~di Fagagna et~al.(2003)d'Adda~di Fagagna, Reaper, Clay-Farrace,
+  Fiegler, Carr, von Zglinicki, Saretzki, Carter, and Jackson]{fagagna2003dna}
+Fabrizio d'Adda~di Fagagna, Philip~M Reaper, Lorena Clay-Farrace, Heike
+  Fiegler, Philippa Carr, Thomas von Zglinicki, Gabriele Saretzki, Nigel~P
+  Carter, and Stephen~P Jackson.
+\newblock A {DNA} damage checkpoint response in telomere-initiated senescence.
+\newblock \emph{Nature}, 426\penalty0 (6963):\penalty0 194--198, 2003.
+
+\bibitem[Green et~al.(2011)Green, Galluzzi, and Kroemer]{green2011mitochondria}
+Douglas~R Green, Lorenzo Galluzzi, and Guido Kroemer.
+\newblock Mitochondria and the autophagy--inflammation--cell death axis in
+  organismal aging.
+\newblock \emph{Science}, 333\penalty0 (6046):\penalty0 1109--1112, 2011.
+
+\bibitem[Guarente(2011)]{guarente2011sirtuins}
+Leonard Guarente.
+\newblock Sirtuins, aging, and medicine.
+\newblock \emph{New England Journal of Medicine}, 364\penalty0 (23):\penalty0
+  2235--2244, 2011.
+
+\bibitem[Gladyshev et~al.(2021)Gladyshev, Kritchevsky, Clarke, Cuervo, Fiehn,
+  de~Magalh{\~a}es, Mau, Rigby, Rusyn, Tud{\'\i}n,
+  et~al.]{gladyshev2021molecular}
+Vadim~N Gladyshev, Stephen~B Kritchevsky, Stephen~G Clarke, Ana~Maria Cuervo,
+  Oliver Fiehn, Jo{\~a}o~Pedro de~Magalh{\~a}es, Trudy Mau, Michal Rigby, Ivan
+  Rusyn, Roberto Tud{\'\i}n, et~al.
+\newblock Molecular damage in aging.
+\newblock \emph{Nature Aging}, 1\penalty0 (12):\penalty0 1096--1106, 2021.
+
+\bibitem[Tacutu et~al.(2018)Tacutu, Thornton, Johnson, Budovsky, Barardo,
+  Craig, Diana, Lehmann, Toren, Wang, et~al.]{tacutu2018human}
+Robi Tacutu, Daniel Thornton, Emily Johnson, Arie Budovsky, Diogo Barardo,
+  Thomas Craig, Eugene Diana, Gilad Lehmann, Dmitri Toren, Jingwei Wang, et~al.
+\newblock Human ageing genomic resources: new and updated databases.
+\newblock \emph{Nucleic Acids Research}, 46\penalty0 (D1):\penalty0
+  D1083--D1090, 2018.
+
+\bibitem[Liberzon et~al.(2015)Liberzon, Birger, Thorvaldsd{\'o}ttir, Ghandi,
+  Mesirov, and Tamayo]{liberzon2015molecular}
+Arthur Liberzon, Chet Birger, Helga Thorvaldsd{\'o}ttir, Mahmoud Ghandi, Jill~P
+  Mesirov, and Pablo Tamayo.
+\newblock The molecular signatures database hallmark gene set collection.
+\newblock \emph{Cell Systems}, 1\penalty0 (6):\penalty0 417--425, 2015.
+
+\bibitem[L{\'o}pez-Ot{\'i}n et~al.(2023)L{\'o}pez-Ot{\'i}n, Blasco, Partridge,
+  Serrano, and Kroemer]{lopez2023hallmarks}
+Carlos L{\'o}pez-Ot{\'i}n, Maria~A Blasco, Linda Partridge, Manuel Serrano, and
+  Guido Kroemer.
+\newblock Hallmarks of aging: An expanding universe.
+\newblock \emph{Cell}, 186\penalty0 (2):\penalty0 243--278, 2023.
+\newblock \doi{10.1016/j.cell.2022.11.001}.
+
+\bibitem[Barbie et~al.(2009)Barbie, Tamayo, Boehm, Kim, Moody, Dunn, Schinzel,
+  Sandy, Meylan, Scholl, et~al.]{barbie2009systematic}
+David~A Barbie, Pablo Tamayo, Jesse~S Boehm, So~Young Kim, Susan~E Moody, Ian~F
+  Dunn, Anna~C Schinzel, Peter Sandy, Etienne Meylan, Claudia Scholl, et~al.
+\newblock Systematic {RNA} interference reveals that oncogenic {KRAS}-driven
+  cancers require {TBK1}.
+\newblock \emph{Nature}, 462\penalty0 (7269):\penalty0 108--112, 2009.
+
+\bibitem[Friedman et~al.(2008)Friedman, Hastie, and
+  Tibshirani]{friedman2008sparse}
+Jerome Friedman, Trevor Hastie, and Robert Tibshirani.
+\newblock Sparse inverse covariance estimation with the graphical lasso.
+\newblock \emph{Biostatistics}, 9\penalty0 (3):\penalty0 432--441, 2008.
+
+\bibitem[Spirtes et~al.(2000)Spirtes, Glymour, Scheines, and
+  Heckerman]{spirtes2000causation}
+Peter Spirtes, Clark~N Glymour, Richard Scheines, and David Heckerman.
+\newblock \emph{Causation, prediction, and search}.
+\newblock MIT Press, 2000.
+
+\bibitem[Clauset et~al.(2004)Clauset, Newman, and Moore]{clauset2004finding}
+Aaron Clauset, Mark~EJ Newman, and Cristopher Moore.
+\newblock Finding community structure in very large networks.
+\newblock \emph{Physical Review E}, 70\penalty0 (6):\penalty0 066111, 2004.
+
+\bibitem[Franceschi et~al.(2018)Franceschi, Garagnani, Parini, Giuliani, and
+  Santoro]{franceschi2018inflammaging}
+Claudio Franceschi, Paolo Garagnani, Peter Parini, Cristina Giuliani, and
+  Aurelia Santoro.
+\newblock Inflammaging: a new immune--metabolic viewpoint for age-related
+  diseases.
+\newblock \emph{Nature Reviews Endocrinology}, 14\penalty0 (10):\penalty0
+  576--590, 2018.
+
+\bibitem[Kirkland and Tchkonia(2017)]{kirkland2017cellular}
+James~L Kirkland and Tamara Tchkonia.
+\newblock Cellular senescence: a translational perspective.
+\newblock \emph{EBioMedicine}, 21:\penalty0 21--28, 2017.
+
+\bibitem[Villeda et~al.(2011)Villeda, Luo, Mosher, Zou, Britschgi, Bieri, Stan,
+  Fainberg, Ding, Eggel, et~al.]{villeda2011aging}
+Saul~A Villeda, Jian Luo, Kira~I Mosher, Bende Zou, Markus Britschgi, Gregor
+  Bieri, Trisha~M Stan, Nina Fainberg, Zhaoqing Ding, Alexander Eggel, et~al.
+\newblock The ageing systemic milieu negatively regulates neurogenesis and
+  cognitive function.
+\newblock \emph{Nature}, 477\penalty0 (7362):\penalty0 90--94, 2011.
+
+\end{thebibliography}

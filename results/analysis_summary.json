@@ -1,0 +1,116 @@
+{
+  "dataset": {
+    "n_samples": 300,
+    "n_genes": 250,
+    "n_hallmarks": 9,
+    "tissues": {
+      "blood": 86,
+      "skin": 69,
+      "muscle": 65,
+      "brain": 42,
+      "liver": 38
+    },
+    "age_range": "20-89"
+  },
+  "shared_genes": {
+    "TP53": [
+      "GI",
+      "CS",
+      "SCE"
+    ],
+    "CDKN1A": [
+      "GI",
+      "CS",
+      "SCE"
+    ],
+    "MDM2": [
+      "GI",
+      "CS"
+    ],
+    "H2AFX": [
+      "GI",
+      "CS"
+    ],
+    "TERT": [
+      "TA",
+      "SCE"
+    ],
+    "SIRT3": [
+      "EA",
+      "MD"
+    ],
+    "EZH2": [
+      "EA",
+      "SCE"
+    ],
+    "BMI1": [
+      "EA",
+      "SCE"
+    ],
+    "FOXO3": [
+      "DNS",
+      "SCE"
+    ],
+    "PPARGC1A": [
+      "DNS",
+      "MD"
+    ],
+    "PPARGC1B": [
+      "DNS",
+      "MD"
+    ],
+    "CDKN2A": [
+      "CS",
+      "SCE"
+    ],
+    "SERPINE1": [
+      "CS",
+      "AIC"
+    ],
+    "IL6": [
+      "CS",
+      "AIC"
+    ],
+    "CCL2": [
+      "CS",
+      "AIC"
+    ]
+  },
+  "network": {
+    "correlation_edges": 21,
+    "partial_corr_edges": 14,
+    "density": 0.5833333333333334,
+    "communities": [
+      [
+        "Altered Intercellular Communication",
+        "Cellular Senescence",
+        "Genomic Instability",
+        "Loss of Proteostasis",
+        "Mitochondrial Dysfunction"
+      ],
+      [
+        "Deregulated Nutrient Sensing",
+        "Epigenetic Alterations",
+        "Stem Cell Exhaustion",
+        "Telomere Attrition"
+      ]
+    ]
+  },
+  "ml_results": {
+    "age_classification": {
+      "rf_accuracy": "0.477",
+      "gb_accuracy": "0.433",
+      "lr_accuracy": "0.487"
+    },
+    "biological_age": {
+      "gb_r2": "0.027",
+      "gb_mae": "16.9",
+      "en_r2": "0.146"
+    }
+  },
+  "key_findings": [
+    "Hub hallmark: Deregulated Nutrient Sensing (highest eigenvector centrality)",
+    "Strongest correlation: GI-MD (r=-0.541)",
+    "Most predictable hallmark: MD (R\u00b2=0.510)"
+  ]
+}
