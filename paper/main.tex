@@ -46,10 +46,10 @@ Cross-Talk Among the Nine Hallmarks of Aging}}
 \textbf{Methods:} We present a simulation-benchmarked bioinformatics framework for quantifying inter-hallmark cross-talk. The framework comprises: (1) curated hallmark gene sets (250 genes, 9 hallmarks, from GenAge and primary literature); (2) ssGSEA-based hallmark activity scoring; (3) multi-layer network construction (Spearman correlation with Bonferroni correction, Graphical Lasso partial correlation, PC algorithm conditional-dependence orientation); and (4) machine learning models for age-group classification, biological age estimation, and cross-hallmark predictability. We validate the framework on simulated multi-tissue data (300 samples, 5 tissues, ages 20--90) with known embedded hallmark correlation structure, enabling rigorous ground-truth benchmarking.
 
 \noindent
-\textbf{Results:} Ground-truth benchmarking revealed mixed recovery performance: moderate edge detection (AUROC = 0.454, best F1 = 0.764), modest centrality recovery ($\rho = 0.433$), but poor module recovery (ARI = $-0.169$) and low edge stability across seeds (17\%). Community detection partitioned the inferred network into two groups---a damage-accumulation module (AIC, CS, GI, LP, MD) and a tissue-decline module (DNS, EA, SCE, TA). Cross-hallmark prediction confirmed the hierarchical model: integrative hallmarks (MD: $R^2 = 0.510$, DNS: $R^2 = 0.486$, cross-validated) were most predictable from other hallmarks, while primary hallmarks (SCE: $R^2 = 0.205$) retained the most independent variation. Biological age estimation from hallmark scores yielded cross-validated MAE = 16.1 years (EN $R^2 = 0.146$), indicating that hallmark-level features capture limited but non-trivial age variation. No hallmark pairs showed significant age-dependent rewiring after FDR correction.
+\textbf{Results:} Ground-truth benchmarking against the observed latent hallmark correlations (post age/tissue effects) revealed mixed recovery: weak edge ranking (AUROC = 0.454) but high best-threshold F1 = 0.764, modest centrality recovery ($\rho = 0.433$, top-3 hub overlap = 67\%), poor module recovery (ARI = $-0.169$), strong age-effect recovery ($\rho = 0.796$), and low edge stability across seeds (17\%). The weak AUROC is largely attributable to random signed gene loadings in the simulation that the unsigned scoring method cannot recover---a deliberate stress test. Cross-hallmark prediction showed that antagonistic hallmarks (MD: $R^2 = 0.510$, DNS: $R^2 = 0.486$) were most predictable, while integrative hallmarks (SCE: $R^2 = 0.205$) retained more independent variation. Chronological age prediction from hallmark scores yielded cross-validated MAE = 16.1 years (EN $R^2 = 0.146$). No hallmark pairs showed significant age-dependent correlation changes after FDR correction, consistent with the simulation design which did not embed age-varying covariance structure.
 
 \noindent
-\textbf{Conclusions:} We provide an open-source computational framework for dissecting hallmark-level aging interactions, with transparent benchmarking revealing both strengths (edge detection, cross-hallmark predictability) and limitations (module recovery, edge stability). The honest characterization of recovery performance under idealized simulation conditions establishes baseline expectations for future application to real transcriptomic cohorts.
+\textbf{Conclusions:} We provide an open-source computational framework for dissecting hallmark-level aging interactions, with transparent benchmarking revealing both strengths (best-threshold edge F1, age-effect recovery, cross-hallmark predictability) and limitations (edge-ranking AUROC, module recovery, edge stability). The honest characterization of recovery performance under idealized simulation conditions establishes baseline expectations for future application to real transcriptomic cohorts.
 
 \vspace{0.5em}
 \noindent\textbf{Keywords:} hallmarks of aging, network biology, gene set enrichment, machine learning, biological age, simulation benchmark, systems biology
@@ -298,7 +298,7 @@ The Graphical Lasso-based partial correlation network identified 14 edges (out o
 
 \subsection{Conditional-Dependence Orientation}
 
-The PC algorithm approximation identified 23 oriented edges among the 9 hallmarks (Figure~\ref{fig:causal}). Under the assumptions of causal sufficiency and faithfulness, the orientation pattern was consistent with the hierarchical framework: primary hallmarks predominantly sent outgoing edges to antagonistic and integrative hallmarks. Genomic Instability showed oriented edges toward Telomere Attrition and Cellular Senescence, while Cellular Senescence had an oriented edge toward Altered Intercellular Communication---consistent with known SASP-driven signaling. \textbf{We emphasize that these orientations reflect conditional-dependence structure under strong assumptions, not validated causal relationships.}
+The PC algorithm approximation identified 23 oriented edges among the 9 hallmarks (Figure~\ref{fig:causal}). This exploratory analysis yielded orientations that can be compared with the embedded hierarchy, though the approximate implementation (single-variable conditioning, heuristic orientation) limits interpretability. Genomic Instability showed oriented edges toward Telomere Attrition and Cellular Senescence, while Cellular Senescence had an oriented edge toward Altered Intercellular Communication---consistent with known SASP-driven signaling. \textbf{We emphasize that these orientations reflect conditional-dependence structure under strong assumptions, not validated causal relationships.}
 
 \begin{figure}[H]
     \centering
@@ -309,7 +309,7 @@ The PC algorithm approximation identified 23 oriented edges among the 9 hallmark
 
 \subsection{Machine Learning: Age Group Classification}
 
-Random Forest classification achieved 47.7\% accuracy (5-fold CV) in distinguishing three age groups from hallmark scores, compared to 43.3\% for majority-class baseline and stratified-random baseline. Gradient Boosting achieved 43.3\% and Logistic Regression 48.7\%. While modest in absolute terms, all models exceeded both baselines, indicating that hallmark activity scores carry age-discriminative information beyond class priors. Feature importance analysis revealed varying hallmark contributions across models (Figure~\ref{fig:importance}).
+Random Forest classification achieved 47.7\% accuracy (5-fold CV) in distinguishing three age groups from hallmark scores, compared to 43.3\% for majority-class and stratified-random baselines. Logistic Regression achieved 48.7\%, exceeding both baselines. Gradient Boosting (43.3\%) matched but did not exceed the baselines. The modest improvement of RF and LR over chance indicates that hallmark activity scores carry limited age-discriminative information. Feature importance analysis revealed varying hallmark contributions across models (Figure~\ref{fig:importance}).
 
 \begin{figure}[H]
     \centering
@@ -318,7 +318,7 @@ Random Forest classification achieved 47.7\% accuracy (5-fold CV) in distinguish
     \label{fig:importance}
 \end{figure}
 
-\subsection{Biological Age Estimation}
+\subsection{Chronological Age Prediction}
 
 The Gradient Boosting age-prediction model achieved a cross-validated MAE of 16.9 years and $R^2 = 0.027$ (Figure~\ref{fig:bioage}). Elastic Net yielded better performance ($R^2 = 0.146$, MAE = 16.1 years). Both models outperformed the mean-age baseline, indicating that hallmark scores carry non-trivial age information, but the modest $R^2$ reflects the substantial noise introduced by ssGSEA compression of gene-level expression into nine scalar scores. We note that in this simulated setting, ``age-prediction residuals'' should not be interpreted as biological age acceleration---a concept that requires real phenotypic data.
 
@@ -365,7 +365,7 @@ These patterns reflect the simulation design, not independent biological discove
 
 \subsection{Age-Dependent Rewiring of Hallmark Interactions}
 
-Comparison of hallmark correlation networks between young ($<40$, $n=89$) and old ($\geq 60$, $n=130$) groups was performed using Fisher $z$-tests with Benjamini-Hochberg FDR correction across all 36 pairwise comparisons (Figure~\ref{fig:age_changes}). While several pairs showed nominally different correlations, \textbf{no pairs survived FDR correction at $q < 0.05$}. This indicates that the embedded age-dependent interaction changes were too subtle, or the sample sizes too small, for the pipeline to detect with proper multiple-testing correction. This is an important negative result: it demonstrates that the age-stratified rewiring analysis requires either stronger effects or larger samples than tested here.
+Comparison of hallmark correlation networks between young ($<40$, $n=89$) and old ($\geq 60$, $n=130$) groups was performed using Fisher $z$-tests with Benjamini-Hochberg FDR correction across all 36 pairwise comparisons (Figure~\ref{fig:age_changes}). While several pairs showed nominally different correlations, \textbf{no pairs survived FDR correction at $q < 0.05$}. This is consistent with the simulation design, which embeds age main effects on hallmark scores but does not embed age-varying covariance structure (i.e., no differential hallmark-hallmark correlations between young and old). The absence of FDR-significant rewiring is therefore expected, not a power failure. The analysis demonstrates that the FDR-corrected pipeline does not produce false positives for age-dependent rewiring when none is present.
 
 \begin{figure}[H]
     \centering
@@ -380,7 +380,7 @@ Since our data were generated with a known latent hallmark correlation structure
 
 \begin{table}[H]
 \centering
-\caption{Ground-truth benchmarking results for the analysis pipeline. True edges defined as hallmark pairs with $|\rho_{\text{embedded}}| > 0.1$ in the latent correlation matrix. Ground-truth modules: Primary (GI, TA, EA, LP), Antagonistic (DNS, MD, CS), Integrative (SCE, AIC). Stability = fraction of edges with CV $< 0.1$ across 10 random seeds.}
+\caption{Ground-truth benchmarking results. Target: \textbf{observed latent hallmark correlations} (after age and tissue effects, before gene-level noise/scoring). True edges: pairs with $|\rho_{\text{observed}}| > 0.1$. Ground-truth modules: Primary (GI, TA, EA, LP), Antagonistic (DNS, MD, CS), Integrative (SCE, AIC). Note: the simulation uses random signed gene loadings that the unsigned scoring cannot fully recover, deliberately stress-testing the pipeline.}
 \label{tab:benchmarks}
 \small
 \begin{tabular}{lcc}
@@ -401,7 +401,9 @@ Edge stability (\% CV$<$0.1) & 17\% & Low \\
 \noindent
 These benchmarks reveal a mixed picture. \textbf{Strengths:} The pipeline achieves good edge-level F1 (0.764), indicating reasonable sensitivity-specificity trade-off for edge detection. Age-effect recovery was strong ($\rho = 0.796$), and top-3 hub overlap was moderate (67\%). \textbf{Weaknesses:} Edge AUROC was weak (0.454), below chance-level discrimination. Module recovery essentially failed (ARI = $-0.169$, indicating no agreement with the embedded three-tier hierarchy). Edge stability was low (only 17\% of edges had CV $< 0.1$ across seeds), suggesting that the network topology is sensitive to sampling variation.
 
-\textbf{Diagnosis of weak recovery:} The primary bottleneck appears to be the ssGSEA scoring step, which compresses 20--36 gene expression values into a single scalar per hallmark. Our sensitivity analyses (Section 3.11) showed that shared-gene removal ($r = 0.753$) and tissue adjustment ($r = 0.999$) had varying impact. The PCA scoring sensitivity ($r = 0.783$ vs.\ ssGSEA, improved by sign anchoring) suggests that score definition itself is a significant source of network variation. Extending to direction-aware scoring methods (GSVA, singscore) and multiple simulation regimes may improve recovery.
+\textbf{Diagnosis of weak AUROC:} The simulation assigns random positive or negative gene loadings, creating mixed up/down signatures within each hallmark gene set. The unsigned ssGSEA scoring method cannot recover the direction of individual gene contributions, producing sign inversions in some hallmark-hallmark correlations. This is a deliberate stress test: it models real-world gene sets where regulation direction varies across genes. The high best-threshold F1 (0.764) indicates that many true edges are detectable at the binary level despite the AUROC weakness.
+
+\textbf{Additional factors:} Shared-gene removal had moderate impact ($r = 0.753$), suggesting some cross-hallmark correlation is driven by overlapping gene sets under the multi-hallmark loading model. Tissue adjustment had negligible effect ($r = 0.999$). The scoring-method comparison showed ssGSEA and mean $z$-score are closely aligned ($r = 0.956$), while sign-anchored PCA also agrees well ($r = 0.783$). Direction-aware methods (GSVA, singscore) may improve edge-ranking AUROC by resolving gene-level sign ambiguity.
 
 \textbf{Implications:} These results establish a realistic performance baseline. The pipeline is suitable for exploratory network construction but should not be relied upon for precise module assignment or hub ranking without additional validation. Application to real data requires acknowledging these limitations.
 
@@ -460,11 +462,11 @@ The pipeline detected tissue-specific hallmark-age correlation profiles that mat
 
 \subsection{Age-Dependent Network Rewiring}
 
-The failure to detect FDR-significant age-dependent rewiring in this simulation is an instructive negative result. While the simulation embedded differential correlation structure between age groups, the pipeline could not detect it at the ssGSEA score level with the available sample sizes ($n_{\text{young}} = 89$, $n_{\text{old}} = 130$). This suggests that age-stratified network comparison requires either larger samples, stronger embedded effects, or more sensitive scoring methods. Future application to real cohorts should account for this power limitation.
+No FDR-significant age-dependent rewiring was detected, which is the correct result: the simulation embeds age main effects on hallmark scores but does not embed age-varying covariance structure. The null finding demonstrates that the FDR-corrected pipeline avoids false-positive rewiring claims when differential correlations are absent. To validate the pipeline's ability to \textit{detect} age-dependent rewiring, future work should add explicit age-interaction terms to the simulation and assess sensitivity/specificity.
 
-\subsection{Biological Age Estimation}
+\subsection{Chronological Age Prediction}
 
-The cross-validated biological age model demonstrated that hallmark activity scores carry age-predictive information. All ML models outperformed baseline predictors in cross-validation (mean-age and tissue-only), confirming that hallmark-level features capture aging variation beyond tissue composition. The moderate cross-validated $R^2$ is expected given the noise in ssGSEA scoring and the compression of complex pathway activities into single scalars. Application to real data may yield different performance depending on the quality of hallmark gene sets and the confounding structure of the cohort.
+The cross-validated chronological age prediction model demonstrated that hallmark activity scores carry some age-predictive information. Elastic Net and Random Forest outperformed baseline predictors in cross-validation, though Gradient Boosting ($R^2 = 0.027$) did not meaningfully exceed baselines. The moderate cross-validated $R^2$ is expected given the noise in ssGSEA scoring and the compression of complex pathway activities into single scalars. Application to real data may yield different performance depending on the quality of hallmark gene sets and the confounding structure of the cohort.
 
 \subsection{Limitations and Future Directions}
 
@@ -488,9 +490,9 @@ We present a simulation-benchmarked computational framework for dissecting the i
 \begin{enumerate}[noitemsep]
     \item Recover embedded hallmark interaction structure from noisy gene-level expression data, as quantified by edge AUROC, centrality rank correlation, and module ARI;
     \item Partition the inferred network into descriptive modules and rank candidate hub hallmarks for exploratory follow-up, though module recovery (ARI = $-0.169$) and hub ranking ($\rho = 0.433$) were limited;
-    \item Distinguish integrative hallmarks (high cross-predictability) from primary hallmarks (high independent variation) via cross-hallmark prediction;
-    \item Implement FDR-corrected age-dependent rewiring analysis, though no significant rewiring was detected in the current simulation (a power limitation requiring larger samples);
-    \item Estimate biological age from hallmark scores, outperforming baseline predictors with proper cross-validated evaluation.
+    \item Reveal differential cross-hallmark predictability: antagonistic hallmarks (MD, DNS) were most predictable from other hallmark scores, while integrative hallmark SCE retained more independent variation in this simulation;
+    \item Evaluate age-dependent network rewiring with FDR-corrected testing; the null finding is consistent with the simulation design (no embedded age-varying covariance);
+    \item Predict chronological age from hallmark scores, with Elastic Net partially outperforming mean-age and tissue-only baselines ($R^2 = 0.146$).
 \end{enumerate}
 The framework and all code are provided as open-source resources. The critical next step is application to real multi-tissue transcriptomic cohorts (e.g., GTEx, Aging Atlas) to determine whether the interaction patterns recovered from simulation also emerge from empirical data. Only then can the biological conclusions suggested by the network topology be evaluated.
 

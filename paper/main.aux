@@ -75,7 +75,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Machine Learning: Age Group Classification}{9}{subsection.3.6}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {Hallmark feature importance for age group classification.} Random Forest and Gradient Boosting importances. Integrative hallmarks (SCE, AIC) and Cellular Senescence dominate age-group discrimination.\relax }}{10}{figure.caption.8}\protected@file@percent }
 \newlabel{fig:importance}{{5}{10}{\textbf {Hallmark feature importance for age group classification.} Random Forest and Gradient Boosting importances. Integrative hallmarks (SCE, AIC) and Cellular Senescence dominate age-group discrimination.\relax }{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Biological Age Estimation}{10}{subsection.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Chronological Age Prediction}{10}{subsection.3.7}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \textbf  {Age prediction from hallmark scores.} (Left) Cross-validated predicted vs.\ chronological age from Gradient Boosting model. (Right) Distribution of age-prediction residuals (predicted $-$ actual). In this simulation, residuals reflect model error, not biological age acceleration.\relax }}{10}{figure.caption.9}\protected@file@percent }
 \newlabel{fig:bioage}{{6}{10}{\textbf {Age prediction from hallmark scores.} (Left) Cross-validated predicted vs.\ chronological age from Gradient Boosting model. (Right) Distribution of age-prediction residuals (predicted $-$ actual). In this simulation, residuals reflect model error, not biological age acceleration.\relax }{figure.caption.9}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.8}Cross-Hallmark Predictability}{10}{subsection.3.8}\protected@file@percent }
@@ -90,35 +90,35 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \textbf  {Age-dependent changes in hallmark interaction strength.} Bars show the change in Spearman correlation between old ($\geq $60) and young ($<$40) groups. Red: strengthened coupling; Blue: weakened coupling. Stars indicate statistical significance.\relax }}{12}{figure.caption.12}\protected@file@percent }
 \newlabel{fig:age_changes}{{9}{12}{\textbf {Age-dependent changes in hallmark interaction strength.} Bars show the change in Spearman correlation between old ($\geq $60) and young ($<$40) groups. Red: strengthened coupling; Blue: weakened coupling. Stars indicate statistical significance.\relax }{figure.caption.12}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.12}Ground-Truth Benchmarking}{12}{subsection.3.12}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Ground-truth benchmarking results for the analysis pipeline. True edges defined as hallmark pairs with $|\rho _{\text  {embedded}}| > 0.1$ in the latent correlation matrix. Ground-truth modules: Primary (GI, TA, EA, LP), Antagonistic (DNS, MD, CS), Integrative (SCE, AIC). Stability = fraction of edges with CV $< 0.1$ across 10 random seeds.\relax }}{13}{table.caption.13}\protected@file@percent }
-\newlabel{tab:benchmarks}{{4}{13}{Ground-truth benchmarking results for the analysis pipeline. True edges defined as hallmark pairs with $|\rho _{\text {embedded}}| > 0.1$ in the latent correlation matrix. Ground-truth modules: Primary (GI, TA, EA, LP), Antagonistic (DNS, MD, CS), Integrative (SCE, AIC). Stability = fraction of edges with CV $< 0.1$ across 10 random seeds.\relax }{table.caption.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Ground-truth benchmarking results. Target: \textbf  {observed latent hallmark correlations} (after age and tissue effects, before gene-level noise/scoring). True edges: pairs with $|\rho _{\text  {observed}}| > 0.1$. Ground-truth modules: Primary (GI, TA, EA, LP), Antagonistic (DNS, MD, CS), Integrative (SCE, AIC). Note: the simulation uses random signed gene loadings that the unsigned scoring cannot fully recover, deliberately stress-testing the pipeline.\relax }}{13}{table.caption.13}\protected@file@percent }
+\newlabel{tab:benchmarks}{{4}{13}{Ground-truth benchmarking results. Target: \textbf {observed latent hallmark correlations} (after age and tissue effects, before gene-level noise/scoring). True edges: pairs with $|\rho _{\text {observed}}| > 0.1$. Ground-truth modules: Primary (GI, TA, EA, LP), Antagonistic (DNS, MD, CS), Integrative (SCE, AIC). Note: the simulation uses random signed gene loadings that the unsigned scoring cannot fully recover, deliberately stress-testing the pipeline.\relax }{table.caption.13}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.13}Sensitivity Analyses}{13}{subsection.3.13}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Sensitivity analysis results. Pearson $r$ between upper-triangle correlation matrices measures agreement with the primary analysis.\relax }}{13}{table.caption.14}\protected@file@percent }
-\newlabel{tab:sensitivity}{{5}{13}{Sensitivity analysis results. Pearson $r$ between upper-triangle correlation matrices measures agreement with the primary analysis.\relax }{table.caption.14}{}}
 \citation{kennedy2014geroscience}
-\citation{kirkland2017cellular}
-\citation{villeda2011aging,franceschi2018inflammaging}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Sensitivity analysis results. Pearson $r$ between upper-triangle correlation matrices measures agreement with the primary analysis.\relax }}{14}{table.caption.14}\protected@file@percent }
+\newlabel{tab:sensitivity}{{5}{14}{Sensitivity analysis results. Pearson $r$ between upper-triangle correlation matrices measures agreement with the primary analysis.\relax }{table.caption.14}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{14}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Integrative Hallmarks as Network Convergence Points}{14}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Two-Module Architecture of Aging}{14}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Conditional-Dependence Structure}{14}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Tissue-Specific Hallmark Signatures}{14}{subsection.4.4}\protected@file@percent }
+\citation{kirkland2017cellular}
+\citation{villeda2011aging,franceschi2018inflammaging}
 \citation{barbie2009systematic}
-\citation{lopez2023hallmarks}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Conditional-Dependence Structure}{15}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Tissue-Specific Hallmark Signatures}{15}{subsection.4.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Age-Dependent Network Rewiring}{15}{subsection.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Biological Age Estimation}{15}{subsection.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Chronological Age Prediction}{15}{subsection.4.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Limitations and Future Directions}{15}{subsection.4.7}\protected@file@percent }
+\citation{lopez2023hallmarks}
 \bibstyle{unsrtnat}
 \bibdata{references}
 \bibcite{lopez2013hallmarks}{{1}{2013}{{L{\'o}pez-Ot{\'i}n et~al.}}{{L{\'o}pez-Ot{\'i}n, Blasco, Partridge, Serrano, and Kroemer}}}
 \bibcite{kennedy2014geroscience}{{2}{2014}{{Kennedy et~al.}}{{Kennedy, Berger, Brunet, Campisi, Cuervo, Epel, Franceschi, Lithgow, Morimoto, Pessin, et~al.}}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{16}{section.5}\protected@file@percent }
 \bibcite{fagagna2003dna}{{3}{2003}{{d'Adda~di Fagagna et~al.}}{{d'Adda~di Fagagna, Reaper, Clay-Farrace, Fiegler, Carr, von Zglinicki, Saretzki, Carter, and Jackson}}}
 \bibcite{green2011mitochondria}{{4}{2011}{{Green et~al.}}{{Green, Galluzzi, and Kroemer}}}
 \bibcite{guarente2011sirtuins}{{5}{2011}{{Guarente}}{{}}}
 \bibcite{gladyshev2021molecular}{{6}{2021}{{Gladyshev et~al.}}{{Gladyshev, Kritchevsky, Clarke, Cuervo, Fiehn, de~Magalh{\~a}es, Mau, Rigby, Rusyn, Tud{\'\i }n, et~al.}}}
 \bibcite{tacutu2018human}{{7}{2018}{{Tacutu et~al.}}{{Tacutu, Thornton, Johnson, Budovsky, Barardo, Craig, Diana, Lehmann, Toren, Wang, et~al.}}}
 \bibcite{liberzon2015molecular}{{8}{2015}{{Liberzon et~al.}}{{Liberzon, Birger, Thorvaldsd{\'o}ttir, Ghandi, Mesirov, and Tamayo}}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{16}{section.5}\protected@file@percent }
 \bibcite{lopez2023hallmarks}{{9}{2023}{{L{\'o}pez-Ot{\'i}n et~al.}}{{L{\'o}pez-Ot{\'i}n, Blasco, Partridge, Serrano, and Kroemer}}}
 \bibcite{barbie2009systematic}{{10}{2009}{{Barbie et~al.}}{{Barbie, Tamayo, Boehm, Kim, Moody, Dunn, Schinzel, Sandy, Meylan, Scholl, et~al.}}}
 \bibcite{friedman2008sparse}{{11}{2008}{{Friedman et~al.}}{{Friedman, Hastie, and Tibshirani}}}
